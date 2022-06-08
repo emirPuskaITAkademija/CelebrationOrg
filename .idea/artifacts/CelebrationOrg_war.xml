@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="CelebrationOrg:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>CelebrationOrg</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="CelebrationOrg-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="CelebrationOrg:war exploded" />
+    </root>
+  </artifact>
+</component>
