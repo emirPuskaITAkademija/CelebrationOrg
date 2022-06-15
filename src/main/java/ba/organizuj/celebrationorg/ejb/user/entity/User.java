@@ -1,5 +1,6 @@
 package ba.organizuj.celebrationorg.ejb.user.entity;
 
+import ba.organizuj.celebrationorg.ejb.celebration.entity.Celebration;
 import ba.organizuj.celebrationorg.ejb.town.entity.Town;
 import ba.organizuj.celebrationorg.ejb.user.privilege.entity.Privilege;
 import jakarta.persistence.Basic;
@@ -12,11 +13,13 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -77,6 +80,9 @@ public class User implements Serializable {
     @JoinColumn(name = "town_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Town town;
+
+    @OneToMany(mappedBy = "userCreator")
+    private List<Celebration> celebrationList;
 
 
 
@@ -161,6 +167,14 @@ public class User implements Serializable {
 
     public void setTown(Town town) {
         this.town = town;
+    }
+
+    public List<Celebration> getCelebrationList() {
+        return celebrationList;
+    }
+
+    public void setCelebrationList(List<Celebration> celebrationList) {
+        this.celebrationList = celebrationList;
     }
 
     @Override

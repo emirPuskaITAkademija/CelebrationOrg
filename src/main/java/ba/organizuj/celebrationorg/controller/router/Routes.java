@@ -5,5 +5,6 @@ public interface Routes {
     String LOGIN = "authentication/login.jsp";
     String DASHBOARD_ACCES = "dashboardAccess";
     String DASHBOARD = "dashboard/dashboard.jsp";
+    String CELEBRATION = "dashboard/celebration.jsp";
     String REGISTRATION_FORM = "registration/register.jsp";
 }

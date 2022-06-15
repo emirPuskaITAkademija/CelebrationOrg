@@ -60,14 +60,14 @@ public class UserService extends AbstractService<User> {
 
     /**
      * @param username
-     * @param password
-     * @return user or null(in case of incorrect username or password)
+     * @param plainPassword
+     * @return user or null(in case of incorrect username or plainPassword)
      */
-    public User login(String username, String password) {
+    public User login(String username, String plainPassword) {
         User user = findByUsernameOrNull(username);
-        //plainPassword -> password
+        //plainPassword -> plainPassword
         //hashedPassword -> user.getPassword();
-        if (user != null && pbkdf2PasswordHash.verify(password.toCharArray(), user.getPassword())) {
+        if (user != null && pbkdf2PasswordHash.verify(plainPassword.toCharArray(), user.getPassword())) {
             return user;
         }
         return null;
