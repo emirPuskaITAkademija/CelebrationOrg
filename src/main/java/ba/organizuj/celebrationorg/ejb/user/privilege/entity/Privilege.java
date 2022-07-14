@@ -1,6 +1,7 @@
 package ba.organizuj.celebrationorg.ejb.user.privilege.entity;
 
 import ba.organizuj.celebrationorg.ejb.user.entity.User;
+import jakarta.json.bind.annotation.JsonbTransient;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -30,6 +31,7 @@ public class Privilege implements Serializable {
     @Column(name = "name")
     private String name;
 
+    @JsonbTransient
     @OneToMany(mappedBy = "privilege")
     private List<User> userList;
 

@@ -39,6 +39,9 @@ public abstract class AbstractService<E>{
 
     //Delete
     public void remove(E entity){
+        if(!getEntityManager().contains(entity)){
+            entity = getEntityManager().merge(entity);
+        }
         getEntityManager().remove(entity);
     }
 }
